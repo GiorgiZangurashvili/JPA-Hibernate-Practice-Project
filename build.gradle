@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group = 'dev.jpa'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+}
+
+dependencies {
+    implementation group: 'com.zaxxer', name: 'HikariCP', version: '5.0.1'
+    implementation group: 'org.hibernate', name: 'hibernate-core', version: '6.5.2.Final'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.30'
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.30'
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.7.3'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
